@@ -55,7 +55,7 @@ const NewQuestion: React.FC = () => {
                       ..._formValues,
                       description,
                     }));
-                  }}
+                  }}  
                   className="form-control"
                   placeholder="Give more context to your question."
                 />
