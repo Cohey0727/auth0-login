@@ -20,6 +20,5 @@ const AuthWrapper: React.FC = ({ children }) => {
   useEffect(() => {
     if (!isLoading && !isAuthenticated) loginWithRedirect();
   }, [isLoading, isAuthenticated]);
-  console.debug({isAuthenticated, isLoading})
-  return <>{isAuthenticated && children}</>;
+  return isAuthenticated ? <>{children}</> : <div>...Loading</div>;
 };

@@ -11,15 +11,11 @@ const NewQuestion: React.FC = () => {
 
   const submit = async () => {
     setSubmitting(true);
+    const idToken = await getIdTokenClaims();
     await axios.post(
       "http://localhost:8081",
-      {
-        title: formValues.title,
-        description: formValues.description,
-      },
-      {
-        headers: { Authorization: `Bearer ${getIdTokenClaims()}` },
-      }
+      { title: formValues.title, description: formValues.description },
+      { headers: { Authorization: `Bearer ${idToken.__raw}` } }
     );
     history.push("/");
   };
@@ -55,7 +51,7 @@ const NewQuestion: React.FC = () => {
                       ..._formValues,
                       description,
                     }));
-                  }}  
+                  }}
                   className="form-control"
                   placeholder="Give more context to your question."
                 />
