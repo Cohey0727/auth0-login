@@ -18,6 +18,7 @@ const NewQuestion: React.FC = () => {
       { headers: { Authorization: `Bearer ${idToken.__raw}` } }
     );
     history.push("/");
+    setSubmitting(false);
   };
 
   return (
